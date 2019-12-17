@@ -11,9 +11,9 @@ import { RegisterComponent } from './Components/Value/register/register.componen
 import { ErrorInterceptorProvider } from './Services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { ListsComponent } from './Components/Value/lists/lists.component';
-import { MemberListComponent } from './Components/Value/member-list/member-list.component';
+import { MemberListComponent } from '../app/members/member-list/member-list.component';
 import { MessagesComponent } from './Components/Value/messages/messages.component';
-
+import { MemberCardComponent } from '../app/members/member-list/member-card/member-card.component';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { MessagesComponent } from './Components/Value/messages/messages.componen
     RegisterComponent,
     ListsComponent,
     MemberListComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberCardComponent
 
   ],
   imports: [
