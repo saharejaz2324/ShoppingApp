@@ -6,6 +6,12 @@ import { MemberListComponent } from '../app/members/member-list/member-list.comp
 import { ListsComponent } from './Components/Value/lists/lists.component';
 import { MessagesComponent } from './Components/Value/messages/messages.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { MemberDetailComponent } from './members/member-list/member-detail/member-detail.component';
+import { MemberDetailresolver } from './resolver/member-detail.resolver';
+import { MemberListResolver } from './resolver/member-list.resolver';
+import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
+import { MemberEditResolver } from './resolver/member-edit.resolver';
+import { PreventUnsavedChanges } from './Guards/prevent-unsaved-changes.guard';
 
 
 const routes: Routes = [
@@ -29,7 +35,19 @@ const routes: Routes = [
       {
         path: 'members',
         component: MemberListComponent,
+        resolve: {users: MemberListResolver}
       },
+      {
+        path: 'members/:id',
+        component: MemberDetailComponent,
+        resolve: {user: MemberDetailresolver}
+      },
+      {
+        path: 'member/edit',
+        component: MemberEditComponent,
+        resolve: {user: MemberEditResolver},
+        canDeactivate: [PreventUnsavedChanges]
+      }
     ]
   },
   {

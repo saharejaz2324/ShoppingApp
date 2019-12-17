@@ -3,7 +3,7 @@
     <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_YsPRBXiClnUo6ScFT2csQ1reGW4PhhIQXVXx1051THp_OM&s" alt="{{user.knownAs}}">
     <ul class="list-inline member-icons animate text-center">
       <li class="list-inline-item">
-        <button class="btn btn-primary">
+        <button [routerLink]="['/members/', user.id]" class="btn btn-primary">
           <i class = "fa fa-user"></i>
         </button>
         <button class="btn btn-primary">
