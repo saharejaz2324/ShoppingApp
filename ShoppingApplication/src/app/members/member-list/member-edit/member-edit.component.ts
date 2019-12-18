@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class MemberEditComponent implements OnInit {
   user: User;
+  photoUrl: string;
 @ViewChild('editForm', {static: true}) editForm: NgForm;
 // @ViewChild() provides the instance of another
 // component or directive in a parent component
@@ -36,6 +37,9 @@ unloadNotification($event: any) {
     this.route.data.subscribe(data => {
       this.user = data['user'];
     });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => {
+      this.photoUrl = photoUrl;
+    });
   }
   updatedUser() {
     this.userService.updateUser(this.authService.decodedToken.nameid, this.user)
@@ -47,5 +51,8 @@ unloadNotification($event: any) {
     }
       );
 
+  }
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
   }
 }

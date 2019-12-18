@@ -15,7 +15,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_YsPRBXiClnUo6ScFT2csQ1reGW4PhhIQXVXx1051THp_OM&s" 
+        <img class="card-img-top img-thumbnail" src="{{photoUrl}}" 
         alt="{{user?.knownAs}}">
         <div class="card-body">
           <div>
@@ -78,7 +78,8 @@
             
             </tab>
             <tab heading="Edit Photos">
-          <app-Photo-editor [photos] = "user.photos"></app-Photo-editor>
+          <app-Photo-editor [photos] = "user.photos"
+           (getMemberPhotoChange)= "updateMainPhoto($event)"></app-Photo-editor>
   
             </tab>
           </tabset>
