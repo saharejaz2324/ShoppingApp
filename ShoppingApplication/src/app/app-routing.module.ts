@@ -12,6 +12,7 @@ import { MemberListResolver } from './resolver/member-list.resolver';
 import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
 import { MemberEditResolver } from './resolver/member-edit.resolver';
 import { PreventUnsavedChanges } from './Guards/prevent-unsaved-changes.guard';
+import { MemberPhotoResolver } from './resolver/member-photo.resolver';
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
       {
         path: 'members',
         component: MemberListComponent,
-        resolve: {users: MemberListResolver}
+        resolve: {users: MemberListResolver }
       },
       {
         path: 'members/:id',

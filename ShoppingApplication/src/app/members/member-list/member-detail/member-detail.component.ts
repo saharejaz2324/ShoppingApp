@@ -43,7 +43,7 @@ user: User;
     const imageUrls = [];
     for (const photo of this.user.photos) {
       console.log('inside photo');
-      photo.url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_YsPRBXiClnUo6ScFT2csQ1reGW4PhhIQXVXx1051THp_OM&s';
+     // photo.url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBu_YsPRBXiClnUo6ScFT2csQ1reGW4PhhIQXVXx1051THp_OM&s';
       imageUrls.push(
         {
           small: photo.url,

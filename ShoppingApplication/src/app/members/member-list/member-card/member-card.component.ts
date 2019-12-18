@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/Models/User';
+import { UserService } from 'src/app/Services/user.service';
+import { ActivatedRoute } from '@angular/router';
+import { AlterifyService } from 'src/app/Services/Alterify.service';
+import { AuthService } from 'src/app/Services/auth.service';
+import { Photo } from 'src/app/Models/photo';
 
 @Component({
   selector: 'app-member-card',
@@ -9,10 +14,13 @@ import { User } from 'src/app/Models/User';
 export class MemberCardComponent implements OnInit {
   @Input() user: User;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private alertify: AlterifyService,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
-  ngOnInit() {
-    console.log(this.user.age, this.user.knownAs);
+   ngOnInit() {
   }
-
 }

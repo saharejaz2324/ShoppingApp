@@ -23,6 +23,8 @@ import { MemberEditResolver } from './resolver/member-edit.resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
 import { PreventUnsavedChanges } from './Guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './members/member-list/Photo-editor/Photo-editor.component';
+import { MemberPhotoResolver } from './resolver/member-photo.resolver';
 
 
 export function tokenGetter() {
@@ -47,7 +49,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MessagesComponent,
     MemberCardComponent,
     MemberDetailComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent
 
   ],
   imports: [
@@ -73,6 +76,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MemberEditResolver,
     MemberDetailresolver,
     MemberListResolver,
+    MemberPhotoResolver,
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
   ],
   bootstrap: [AppComponent]
