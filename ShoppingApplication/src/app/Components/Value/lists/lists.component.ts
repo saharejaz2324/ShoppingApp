@@ -24,7 +24,9 @@ export class ListsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+      // tslint:disable-next-line: no-string-literal
       this.users = data ['users'].result;
+      // tslint:disable-next-line: no-string-literal
       this.pagination = data['users'].pagination;
     });
     this.likesParam = 'Likers';
@@ -47,6 +49,4 @@ export class ListsComponent implements OnInit {
     this.pagination.currentPage = event.page;
     this.loadUsers();
   }
-
-  
 }

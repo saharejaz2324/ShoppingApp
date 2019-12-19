@@ -25,7 +25,9 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
+     // tslint:disable-next-line: no-string-literal
      this.users = data['users'].result;
+     // tslint:disable-next-line: no-string-literal
      this.pagination = data['users'].pagination;
    });
     this.userParams.orderBy = 'LastActive';
