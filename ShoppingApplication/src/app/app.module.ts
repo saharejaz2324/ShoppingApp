@@ -12,7 +12,7 @@ import { AuthService } from './Services/auth.service';
 import { HomeComponent } from './Components/Value/home/home.component';
 import { RegisterComponent } from './Components/Value/register/register.component';
 import { ErrorInterceptorProvider } from './Services/error.interceptor';
-import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule, BsDatepickerModule, PaginationModule, ButtonsModule } from 'ngx-bootstrap';
 import { ListsComponent } from './Components/Value/lists/lists.component';
 import { MemberListComponent } from '../app/members/member-list/member-list.component';
 import { MessagesComponent } from './Components/Value/messages/messages.component';
@@ -26,6 +26,8 @@ import { MemberEditComponent } from './members/member-list/member-edit/member-ed
 import { PreventUnsavedChanges } from './Guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/member-list/Photo-editor/Photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import {TimeAgoPipe} from 'time-ago-pipe';
+import { ListsResolver } from './resolver/lists.resolver';
 
 
 export function tokenGetter() {
@@ -51,7 +53,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MemberCardComponent,
     MemberDetailComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TimeAgoPipe
 
   ],
   imports: [
@@ -60,8 +63,10 @@ export class CustomHammerConfig extends HammerGestureConfig  {
    HttpClientModule,
    NgxGalleryModule,
    ReactiveFormsModule,
+   PaginationModule.forRoot(),
    FileUploadModule,
    FormsModule,
+   ButtonsModule.forRoot(),
    BrowserAnimationsModule,
    BsDatepickerModule.forRoot(),
    TabsModule.forRoot(),
@@ -80,7 +85,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     PreventUnsavedChanges,
     MemberEditResolver,
     MemberDetailresolver,
+    MemberEditResolver,
     MemberListResolver,
+    ListsResolver,
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
   ],
   bootstrap: [AppComponent]

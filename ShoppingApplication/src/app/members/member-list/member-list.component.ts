@@ -5,6 +5,7 @@ import { User } from 'src/app/Models/User';
 import {  ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Photo } from 'src/app/Models/photo';
+import { Pagination, PaginatedResult } from 'src/app/Models/pagination';
 
 @Component({
   selector: 'app-member-list',
@@ -13,7 +14,8 @@ import { Photo } from 'src/app/Models/photo';
 })
 export class MemberListComponent implements OnInit {
   users: User[];
-  photos: Photo[];
+  pagination: Pagination;
+  userParams: any = {};
   constructor(
     private userService: UserService,
     private alertify: AlterifyService,
@@ -23,15 +25,23 @@ export class MemberListComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-     this.users = data['users'];
+     this.users = data['users'].result;
+     this.pagination = data['users'].pagination;
    });
+    this.userParams.orderBy = 'LastActive';
   }
-  // loadUsers() {
-  //   this.userService.getUsers().subscribe((users: User[]) => {
-  //     this.users = users;
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   });
-  // }
-
+  pageChanged(event: any): void {
+    this.pagination.currentPage = event.page;
+    this.loadUsers();
+  }
+  loadUsers() {
+    this.userService.getUsers(this.pagination.currentPage,
+      this.pagination.itemsPerPage, this.userParams)
+    .subscribe((res: PaginatedResult<User[]>) => {
+      this.users = res.result;
+      this.pagination = res.pagination;
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
 }
