@@ -13,6 +13,7 @@ import { MemberEditComponent } from './members/member-list/member-edit/member-ed
 import { MemberEditResolver } from './resolver/member-edit.resolver';
 import { PreventUnsavedChanges } from './Guards/prevent-unsaved-changes.guard';
 import { ListsResolver } from './resolver/lists.resolver';
+import { MessagesResolver } from './resolver/messages.resolver';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
       },
       {
         path: 'messages',
-        component: MessagesComponent
+        component: MessagesComponent,
+        resolve: {messages: MessagesResolver}
       },
       {
         path: 'members',

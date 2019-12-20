@@ -28,6 +28,8 @@ import { PhotoEditorComponent } from './members/member-list/Photo-editor/Photo-e
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { ListsResolver } from './resolver/lists.resolver';
+import { MessagesResolver } from './resolver/messages.resolver';
+import { MemberMessagesComponent } from './members/member-list/member-messages/member-messages.component';
 
 
 export function tokenGetter() {
@@ -52,6 +54,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     MessagesComponent,
     MemberCardComponent,
     MemberDetailComponent,
+    MemberMessagesComponent,
     MemberEditComponent,
     PhotoEditorComponent,
     TimeAgoPipe
@@ -85,6 +88,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     PreventUnsavedChanges,
     MemberEditResolver,
     MemberDetailresolver,
+    MessagesResolver,
     MemberEditResolver,
     MemberListResolver,
     ListsResolver,
