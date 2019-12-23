@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(data => {
       this.alertify.success('Logged in successfully');
     }, error => {
-      this.alertify.error(error);
+      this.alertify.error('You have entered wrong Email or Password');
     }, () => {
       this.router.navigate(['/members']);
     });
